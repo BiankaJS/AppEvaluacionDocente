@@ -6,6 +6,16 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+    children: [
+      {
+        path: 'teacher',
+        loadChildren: () => import('../page/teacher/teacher.module').then(m => m.TeacherPageModule)
+      },
+      {
+        path: 'chart',
+        loadChildren: () => import('../page/chart/chart.module').then(m => m.ChartPageModule)
+      }
+    ]
   }
 ];
 
