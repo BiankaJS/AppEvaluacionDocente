@@ -27,10 +27,25 @@
         </ion-card-content>
     </div>
     <div class="icon-column">
-        <ion-button fill="clear" shape="round" color="primary">
+        <ion-button fill="clear" shape="round" color="primary" (click)="setOpen(true, teacher)">
             <ion-icon name="information-circle-outline"></ion-icon>
         </ion-button>
     </div>
 </ion-card>
+<ion-modal #modalRef [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Modal</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false, null)" color="white">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      {{selectedTeacher.email}}
+    </ion-content>
+  </ng-template>
+</ion-modal>
 </div>
 </ion-content>

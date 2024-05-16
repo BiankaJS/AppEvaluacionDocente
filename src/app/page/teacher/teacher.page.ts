@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,7 +10,11 @@ import { Observable } from 'rxjs';
 export class TeacherPage implements OnInit {
 
   constructor(private http: HttpClient) { }
+  @ViewChild('modalRef') modalRef: any;
   public teachers: any = [];
+  isModalOpen = false;
+  selectedTeacher: any;
+
 
   ngOnInit() {
     let url = "./../assets/data/teachers.json";
@@ -21,4 +25,9 @@ export class TeacherPage implements OnInit {
     })
   }
 
+  setOpen(isOpen: boolean, teacher: any) {
+    this.isModalOpen = isOpen;
+    this.selectedTeacher = teacher;
+    console.log(teacher)
+  }
 }

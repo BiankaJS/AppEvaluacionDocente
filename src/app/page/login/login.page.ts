@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
   signIn() {
     if (this.loginForm.valid) {
       setTimeout(() => {
-        this.router.navigate(['home']);
+        this.router.navigate(['home/teacher']);
       }, 2000);
     } else {
       console.log('invalid');
