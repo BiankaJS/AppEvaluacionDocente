@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "question": "Does the teacher demonstrate mastery of the course content?"
+    },
+    {
+      "id": 2,
+      "question": "Does the teacher use effective teaching methods?"
+    },
+    {
+      "id": 3,
+      "question": "Does the teacher provide constructive feedback to students?"
+    },
+    {
+      "id": 4,
+      "question": "Does the teacher foster an inclusive and respectful classroom environment?"
+    },
+    {
+      "id": 5,
+      "question": "Is the teacher available to help students outside of class hours?"
+    },
+    {
+      "id": 6,
+      "question": "Does the teacher use appropriate teaching resources to facilitate learning?"
+    },
+    {
+      "id": 7,
+      "question": "Does the teacher motivate students to actively participate in class?"
+    },
+    {
+      "id": 8,
+      "question": "Does the teacher assess fairly and consistently?"
+    },
+    {
+      "id": 9,
+      "question": "Does the teacher demonstrate genuine commitment to student academic progress?"
+    },
+    {
+      "id": 10,
+      "question": "Does the teacher stay updated with trends and advancements in their field?"
+    }
+  ]
+  

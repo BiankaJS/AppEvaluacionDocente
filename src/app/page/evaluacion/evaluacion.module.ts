@@ -8,13 +8,15 @@ import { EvaluacionPageRoutingModule } from './evaluacion-routing.module';
 
 import { EvaluacionPage } from './evaluacion.page';
 import { Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EvaluacionPageRoutingModule
+    EvaluacionPageRoutingModule,
+    HttpClientModule
   ],
   declarations: [EvaluacionPage]
 })

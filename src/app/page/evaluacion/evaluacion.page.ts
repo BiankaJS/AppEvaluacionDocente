@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-evaluacion',
@@ -8,9 +10,16 @@ import { Router } from '@angular/router';
 })
 export class EvaluacionPage implements OnInit {
 
-  constructor(private route: Router) { }
+  constructor(private http: HttpClient, private route: Router) { }
+  public questions: any = [];
 
   ngOnInit() {
+   let url = "./../assets/data/questions.json";
+    let data: Observable<any> = this.http.get(url);
+    data.subscribe(result => {
+      this.questions = result;
+      console.log(result);
+    })
   }
 
   close() {
