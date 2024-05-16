@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class TeacherPage implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: Router) { }
   @ViewChild('modalRef') modalRef: any;
   public teachers: any = [];
   isModalOpen = false;
@@ -29,5 +30,10 @@ export class TeacherPage implements OnInit {
     this.isModalOpen = isOpen;
     this.selectedTeacher = teacher;
     console.log(teacher)
+  }
+
+  logOut() {
+    localStorage.clear()
+    this.route.navigate(['login']);
   }
 }

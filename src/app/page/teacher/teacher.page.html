@@ -1,17 +1,13 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" collapse="condense">
   <ion-toolbar>
-    <ion-title>Teachers</ion-title>
+    <ion-title size="large">Teachers</ion-title>
+    <ion-button slot="end" fill="clear" (click)="logOut()">
+      <ion-icon slot="icon-only" name="log-out-outline" md="settings-sharp"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Teachers</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <!-- Lista de tarjetas -->
   <div class="card-list">
   <ion-card *ngFor="let teacher of teachers">
     <div class="image-column">
@@ -36,7 +32,7 @@
   <ng-template>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Modal</ion-title>
+        <ion-title>{{selectedTeacher.first_name}}</ion-title>
         <ion-buttons slot="end">
           <ion-button (click)="setOpen(false, null)" color="white">Close</ion-button>
         </ion-buttons>
