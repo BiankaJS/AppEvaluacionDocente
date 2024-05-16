@@ -24,7 +24,10 @@ ion-toolbar {
     align-items: center; 
 }
 
-
+ion-modal {
+    --height: 50%; /* Establece la altura del modal al 50% de la pantalla */
+    --border-radius: 20px;
+  }
 
 body {
     background-color: white;
@@ -94,3 +97,10 @@ ion-card-subtitle {
     font-size: 14px;
     color: #666;
 }
+
+.btnEnviar{
+    background-color: #45BBFF;
+}
+
+
+  
