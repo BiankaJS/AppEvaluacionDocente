@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EvaluacionPageRoutingModule } from './evaluacion-routing.module';
 
 import { EvaluacionPage } from './evaluacion.page';
+import { Router } from '@angular/router';
 
 @NgModule({
   imports: [

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { EvaluacionPageModule } from '../evaluacion/evaluacion.module';
 
 @Component({
   selector: 'app-teacher',
@@ -16,6 +17,7 @@ export class TeacherPage implements OnInit {
   isModalOpen = false;
   selectedTeacher: any;
 
+  componet = EvaluacionPageModule;
 
   ngOnInit() {
     let url = "./../assets/data/teachers.json";

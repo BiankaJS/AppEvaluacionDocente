@@ -1,17 +1,8 @@
-ion-header {
-    ion-toolbar {
-        --background: linear-gradient(90deg, #45BBFF, #70c5f6); /* Cambia el color de fondo del appbar a un degradado */
-        --color: white; /* Cambia el color del texto del appbar a blanco */
-        --ion-color-base: white; /* Cambia el color base de Ionic a blanco */
-        --ion-color-base-rgb: 255, 255, 255; /* Cambia el color base de Ionic a blanco */
-        --ion-color-contrast: #45BBFF; /* Cambia el color de contraste de Ionic al color principal del degradado */
-    }
-}
-
 ion-title {
     font-family: 'Roboto', sans-serif; /* Cambia la fuente del título */
     font-weight: bold; /* Hace que el título sea más audaz */
     font-size: 25px;
+    color: #45BBFF;
     margin: 0;
     text-align: center;
 }

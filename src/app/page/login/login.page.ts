@@ -48,10 +48,10 @@ export class LoginPage implements OnInit {
       const emailI = this.loginForm.value.email;
       const passwordI = this.loginForm.value.password;
 
-      const foundUser = users.filter((user: User) =>
+      const foundUser: Boolean = users.filter((user: User) =>
         user.email === emailI && user.password === passwordI
       );
-      console.log(foundUser);
+      console.log("Encontrado: ",foundUser);
 
       if (foundUser) {
         
