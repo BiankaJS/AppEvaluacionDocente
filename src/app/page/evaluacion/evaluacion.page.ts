@@ -25,4 +25,10 @@ export class EvaluacionPage implements OnInit {
   close() {
     this.route.navigate(['home/teacher']);
   }
+
+  submitEvaluation() {
+    // Aquí va la lógica para enviar la evaluación
+    console.log("Evaluación enviada");
+    // Por ejemplo, podrías enviar los datos a un servidor usando HttpClient
+  }
 }
