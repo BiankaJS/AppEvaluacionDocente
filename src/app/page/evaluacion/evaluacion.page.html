@@ -1,7 +1,7 @@
-<ion-header [translucent]="true" collapse="condense">
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-button slot="start" fill="clear" (click)="close()">
-      <ion-icon slot="icon-only" name="chevron-back-outline" md="settings-sharp"></ion-icon>
+      <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
     </ion-button>
     <ion-title>Teacher Evaluation</ion-title>
   </ion-toolbar>
@@ -21,13 +21,15 @@
       </div>
 
       <!-- Selector de 1 a 5 -->
-<ion-select slot="end" [(ngModel)]="question.rating" cancelText="Cancel" okText="Accept">
-  <ion-select-option value="1">Totally Disagree</ion-select-option>
-  <ion-select-option value="2">Disagree</ion-select-option>
-  <ion-select-option value="3">Neither Agree nor Disagree</ion-select-option>
-  <ion-select-option value="4">Agree</ion-select-option>
-  <ion-select-option value="5">Totally Agree</ion-select-option>
-</ion-select>
+      <ion-select slot="end" [(ngModel)]="question.rating" cancelText="Cancel" okText="Accept">
+        <ion-select-option value="1">Totally Disagree</ion-select-option>
+        <ion-select-option value="2">Disagree</ion-select-option>
+        <ion-select-option value="3">Neither Agree nor Disagree</ion-select-option>
+        <ion-select-option value="4">Agree</ion-select-option>
+        <ion-select-option value="5">Totally Agree</ion-select-option>
+      </ion-select>
     </ion-item>
   </ion-list>
+  <!-- Botón Enviar -->
+  <ion-button expand="block" color="success" (click)="submitEvaluation()">Enviar</ion-button>
 </ion-content>
