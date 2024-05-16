@@ -9,7 +9,8 @@
     "phone": "+1 (555) 123-4567",
     "office_location": "Room 101",
     "years_of_experience": 10,
-    "degree": "Ph.D. in Mathematics"
+    "degree": "Ph.D. in Mathematics",
+    "schedules" : ["08:00 a 10:00", "11:00 a 01:00"]
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "phone": "+1 (555) 234-5678",
     "office_location": "Room 202",
     "years_of_experience": 8,
-    "degree": "M.A. in History"
+    "degree": "M.A. in History",
+    "schedules" : ["08:00 a 09:00", "10:30 a 01:30"]
   },
   {
     "id": 3,
@@ -33,7 +35,8 @@
     "phone": "+1 (555) 345-6789",
     "office_location": "Room 303",
     "years_of_experience": 6,
-    "degree": "B.A. in Geography"
+    "degree": "B.A. in Geography",
+    "schedules" : ["07:00 a 09:00", "11:00 a 12:00"]
   },
   {
     "id": 4,
@@ -45,7 +48,8 @@
     "phone": "+1 (555) 456-7890",
     "office_location": "Room 404",
     "years_of_experience": 12,
-    "degree": "Ph.D. in English Literature"
+    "degree": "Ph.D. in English Literature",
+    "schedules" : ["08:00 a 09:30", "11:30 a 01:30"]
   },
   {
     "id": 5,
@@ -57,7 +61,8 @@
     "phone": "+1 (555) 567-8901",
     "office_location": "Gymnasium",
     "years_of_experience": 15,
-    "degree": "B.S. in Physical Education"
+    "degree": "B.S. in Physical Education",
+    "schedules" : ["08:00 a 09:40", "12:00 a 01:00"]
   },
   {
     "id": 6,
@@ -69,7 +74,8 @@
     "phone": "+1 (555) 678-9012",
     "office_location": "Art Studio",
     "years_of_experience": 20,
-    "degree": "M.F.A. in Fine Arts"
+    "degree": "M.F.A. in Fine Arts",
+    "schedules" : ["08:00 a 11:00", "11:00 a 12:00"]
   },
   {
     "id": 7,
@@ -81,22 +87,11 @@
     "phone": "+1 (555) 789-0123",
     "office_location": "Music Room",
     "years_of_experience": 18,
-    "degree": "B.A. in Music Education"
+    "degree": "B.A. in Music Education",
+    "schedules" : [ "09:00 a 10:30", "11:00 a 12:30"]
   },
   {
     "id": 8,
-    "first_name": "Suzette",
-    "last_name": "Veryard",
-    "email": "sveryard7@booking.com",
-    "subject": "Computer Science",
-    "urlImage": "https://media.licdn.com/dms/image/C4D03AQGS4zgprOdEdw/profile-displayphoto-shrink_800_800/0/1606775229357?e=2147483647&v=beta&t=5ZhQema-QLFaAKY3uyxXUC5cgmqSTTby-7zMYCrZO30",
-    "phone": "+1 (555) 890-1234",
-    "office_location": "Computer Lab",
-    "years_of_experience": 10,
-    "degree": "M.S. in Computer Science"
-  },
-  {
-    "id": 9,
     "first_name": "Teodoro",
     "last_name": "Kenewel",
     "email": "tkenewel8@soup.io",
@@ -105,11 +100,12 @@
     "phone": "+1 (555) 901-2345",
     "office_location": "Room 505",
     "years_of_experience": 8,
-    "degree": "B.A. in Linguistics"
+    "degree": "B.A. in Linguistics",
+    "schedules" : [ "09:00 a 10:30","11:00 a 12:30"]
   },
   {
-    "id": 10,
-    "first_name": "Tiertza",
+    "id": 9,
+    "first_name": "Tiana",
     "last_name": "Huglin",
     "email": "thuglin9@gov.uk",
     "subject": "Economics",
@@ -117,58 +113,11 @@
     "phone": "+1 (555) 123-4567",
     "office_location": "Room 606",
     "years_of_experience": 12,
-    "degree": "Ph.D. in Economics"
+    "degree": "Ph.D. in Economics",
+    "schedules" : [ "08:00 a 09:00", "10:30 a 01:30"]
   },
   {
-    "id": 11,
-    "first_name": "Althea",
-    "last_name": "Niccols",
-    "email": "aniccolsa@blogger.com",
-    "subject": "Psychology",
-    "urlImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_7hTGTjbs0CYAmmEy0Tb77AJyGtdO49K-wsNPVQO1vQ&s",
-    "phone": "+1 (555) 234-5678",
-    "office_location": "Room 707",
-    "years_of_experience": 14,
-    "degree": "Ph.D. in Psychology"
-  },
-  {
-    "id": 12,
-    "first_name": "Wainwright",
-    "last_name": "Dilnot",
-    "email": "wdilnotb@cafepress.com",
-    "subject": "Sociology",
-    "urlImage": "https://pbs.twimg.com/media/DaXUEfcX0AEx2iY.jpg",
-    "phone": "+1 (555) 345-6789",
-    "office_location": "Room 808",
-    "years_of_experience": 9,
-    "degree": "M.A. in Sociology"
-  },
-  {
-    "id": 13,
-    "first_name": "Pavlov",
-    "last_name": "Yapp",
-    "email": "pyappc@sphinn.com",
-    "subject": "Civics",
-    "urlImage": "https://i.pinimg.com/736x/0b/43/f8/0b43f82c1f12d65053f42815d4e7554f.jpg",
-    "phone": "+1 (555) 456-7890",
-    "office_location": "Room 909",
-    "years_of_experience": 7,
-    "degree": "B.A. in Political Science"
-  },
-  {
-    "id": 14,
-    "first_name": "Bartlett",
-    "last_name": "Teaze",
-    "email": "bteazed@biblegateway.com",
-    "subject": "Health Education",
-    "urlImage": "https://i.pinimg.com/564x/20/2f/47/202f47d06407c697fa7bd919c66097b4.jpg",
-    "phone": "+1 (555) 567-8901",
-    "office_location": "Health Center",
-    "years_of_experience": 11,
-    "degree": "M.P.H. in Public Health"
-  },
-  {
-    "id": 15,
+    "id": 10,
     "first_name": "George",
     "last_name": "Bealton",
     "email": "gbealtone@independent.co.uk",
@@ -177,10 +126,11 @@
     "phone": "+1 (555) 678-9012",
     "office_location": "Library",
     "years_of_experience": 13,
-    "degree": "Ph.D. in Comparative Literature"
+    "degree": "Ph.D. in Comparative Literature",
+    "schedules" : [ "08:00 a 10:00", "11:00 a 01:00"]
   },
   {
-    "id": 16,
+    "id": 11,
     "first_name": "Sebastiano",
     "last_name": "Ferrelli",
     "email": "sferrellif@foxnews.com",
@@ -189,22 +139,11 @@
     "phone": "+1 (555) 789-0123",
     "office_location": "Chemistry Lab",
     "years_of_experience": 16,
-    "degree": "M.S. in Chemistry"
+    "degree": "M.S. in Chemistry",
+    "schedules" : ["08:00 a 10:00", "11:00 a 01:00"]
   },
   {
-    "id": 17,
-    "first_name": "Bari",
-    "last_name": "Mahy",
-    "email": "bmahyg@shutterfly.com",
-    "subject": "Biology",
-    "urlImage": "https://pm1.aminoapps.com/6795/d43d352e11d7f80b3fb95342e4ac67bbf9308ec2v2_hq.jpg",
-    "phone": "+1 (555) 890-1234",
-    "office_location": "Biology Lab",
-    "years_of_experience": 19,
-    "degree": "Ph.D. in Biology"
-  },
-  {
-    "id": 18,
+    "id": 12,
     "first_name": "Dalton",
     "last_name": "Sellner",
     "email": "dsellnerh@opera.com",
@@ -213,22 +152,11 @@
     "phone": "+1 (555) 901-2345",
     "office_location": "Physics Lab",
     "years_of_experience": 21,
-    "degree": "Ph.D. in Physics"
+    "degree": "Ph.D. in Physics",
+    "schedules" : [ "08:00 a 10:00","11:00 a 01:00"]
   },
   {
-    "id": 19,
-    "first_name": "Ina",
-    "last_name": "Eschalotte",
-    "email": "ieschalottei@ameblo.jp",
-    "subject": "Environmental Science",
-    "urlImage": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fHww",
-    "phone": "+1 (555) 123-4567",
-    "office_location": "Environmental Lab",
-    "years_of_experience": 10,
-    "degree": "M.S. in Environmental Science"
-  },
-  {
-    "id": 20,
+    "id": 13,
     "first_name": "Sebastian",
     "last_name": "Chagg",
     "email": "schaggj@ihg.com",
@@ -237,6 +165,7 @@
     "phone": "+1 (555) 234-5678",
     "office_location": "Room 101",
     "years_of_experience": 7,
-    "degree": "B.S. in Physical Science"
+    "degree": "B.S. in Physical Science",
+    "schedules" : [ "09:00 a 11:00", "11:00 a 02:00"]
   }
 ]

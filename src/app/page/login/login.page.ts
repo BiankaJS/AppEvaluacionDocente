@@ -45,15 +45,16 @@ export class LoginPage implements OnInit {
     let url = "./../assets/data/users.json";
     let data: Observable<any> = this.http.get(url);
     data.subscribe(users => {
-      const emailI = this.loginForm.value.email;
-      const passwordI = this.loginForm.value.password;
+      const emailI: string = this.loginForm.value.email;
+      const passwordI: string = this.loginForm.value.password;
 
-      const foundUser: Boolean = users.filter((user: User) =>
-        user.email === emailI && user.password === passwordI
+      const foundUser: User = users.find((user: User) =>
+        user.user === emailI && user.password === passwordI
       );
+
       console.log("Encontrado: ",foundUser);
 
-      if (foundUser) {
+      if (foundUser != undefined) {
         
         const rand = () => Math.random().toString(36).substr(2);
         var key = (rand() + rand() + rand() + rand()).substr(0, 20);
@@ -74,6 +75,6 @@ export class LoginPage implements OnInit {
 }
 
 interface User {
-  email: string;
+  user: string;
   password: string;
 }

@@ -1,17 +1,21 @@
 [
   {
+    "UserId": 1,
     "user": "BiankaJS",
     "password": "holis"
   },
   {
+    "UserId": 2,
     "user": "PedroRF",
     "password": "12345"
   },
   {
+    "UserId": 3,
     "user": "AlbertoJG",
     "password": "10293"
   },
   {
+    "UserId": 4,
     "user": "AshliAM",
     "password": "67890"
   }
