@@ -14,6 +14,10 @@ const routes: Routes = [
       {
         path: 'chart',
         loadChildren: () => import('../page/chart/chart.module').then(m => m.ChartPageModule)
+      },
+      {
+        path: 'votes',
+        loadChildren: () => import('../page/votes/votes.module').then(m => m.VotesPageModule)
       }
     ]
   }
