@@ -3,8 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { getFirestore } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { NotificationService } from 'src/app/services/notificacion.services';
+import { saveUser } from 'src/main';
 
 @Component({
   selector: 'app-login',
@@ -52,15 +54,18 @@ export class LoginPage implements OnInit {
         user.user === emailI && user.password === passwordI
       );
 
-      console.log("Encontrado: ",foundUser);
+      console.log("Encontrado: ", foundUser);
 
       if (foundUser != undefined) {
-        
         const rand = () => Math.random().toString(36).substr(2);
         var key = (rand() + rand() + rand() + rand()).substr(0, 20);
-        console.log(key);
+
         localStorage.setItem('token', key);
 
+        console.log(foundUser.userId, key)
+
+        saveUser(foundUser.userId, key);
+        
         this.router.navigate(['home/teacher']);
       } else {
         this.notificationService.error('No se encontró el usuario');
@@ -75,6 +80,7 @@ export class LoginPage implements OnInit {
 }
 
 interface User {
+  userId: number;
   user: string;
   password: string;
 }
