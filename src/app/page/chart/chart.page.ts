@@ -20,7 +20,9 @@ export class ChartPage implements OnInit {
   }
 
   options: EChartsOption = {
-    color: ['#3398DB'],
+    legend: {
+      data: ['Maestro01', 'Maestro02', 'Maestro03', 'Maestro04', 'Maestro05', 'Maestro06']
+    },
     grid: {
       left: '3%',
       right: '4%',
@@ -29,24 +31,70 @@ export class ChartPage implements OnInit {
     },
     xAxis: [
       {
-        type: 'category',
-        data: ['Materia01', 'Materia02', 'Materia03', 'Materia04'],
-        axisTick: {
-          alignWithLabel: true
-        }
+        type: 'value'
       }
     ],
     yAxis: [
       {
-        type: 'value'
+        type: 'category',
+        axisTick: {show: false},
+        data: ['Pregunta01', 'Pregunta02', 'Pregunta03', 'Pregunta04', 'Pregunta05', 'Pregunta06']
       }
     ],
     series: [
       {
-        name: 'Test',
+        name: 'Maestro01',
         type: 'bar',
-        barWidth: '35%',
-        data: [150, 135, 140, 85]
+        label: {
+          show: true,
+          position: 'inside'
+        },
+        data: [200, 170, 240, 244, 200, 210]
+      },
+      {
+        name: 'Maestro02',
+        type: 'bar',
+        label: {
+          show: true,
+          position: 'inside'
+        },
+        data: [320, 302, 341, 390, 450, 420]
+      },
+      {
+        name: 'Maestro03',
+        type: 'bar',
+        label: {
+          show: true,
+          position: 'inside'
+        },
+        data: [200, 170, 240, 244, 220, 210]
+      },
+      {
+        name: 'Maestro04',
+        type: 'bar',
+        label: {
+          show: true,
+          position: 'inside'
+        },
+        data: [200, 240, 244, 200, 220, 210]
+      },
+      {
+        name: 'Maestro05',
+        type: 'bar',
+        label: {
+          show: true,
+          position: 'inside'
+        },
+        data: [200, 170, 240, 200, 220, 210]
+      },
+      {
+        name: 'Maestro06',
+        type: 'bar',
+        label: {
+          show: true,
+          position: 'inside'
+        },
+        data: [200, 170, 240, 244, 200, 220]
       }
     ]
   };
