@@ -19,10 +19,13 @@ export class ChartPage implements OnInit {
     let data: Observable<any> = this.http.get(url);
     data.subscribe(result => {
       this.teachers = result;
-    })
 
-    console.log(this.teachers);
-    this.teacher = this.teachers.map((t: Teacher) => t.first_name);
+    this.teachers.map((t: Teacher) => {
+      console.log(t)
+      console.log(t['first_name'])
+      this.teacher.push(...t['first_name']);
+    });
+    })
   }
 
   logOut() {
