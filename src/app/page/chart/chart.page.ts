@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EChartsOption } from 'echarts';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-chart',
@@ -8,10 +10,19 @@ import { EChartsOption } from 'echarts';
   styleUrls: ['./chart.page.scss'],
 })
 export class ChartPage implements OnInit {
-
-  constructor(private route: Router) { }
+  public teachers: any = [];
+  teacher: string[] = [];
+  constructor(private route: Router, private http: HttpClient) { }
 
   ngOnInit() {
+    let url = "./../assets/data/teachers.json";
+    let data: Observable<any> = this.http.get(url);
+    data.subscribe(result => {
+      this.teachers = result;
+    })
+
+    console.log(this.teachers);
+    this.teacher = this.teachers.map((t: Teacher) => t.first_name);
   }
 
   logOut() {
@@ -21,7 +32,7 @@ export class ChartPage implements OnInit {
 
   options: EChartsOption = {
     legend: {
-      data: ['Maestro01', 'Maestro02', 'Maestro03', 'Maestro04', 'Maestro05', 'Maestro06']
+      data: this.teacher
     },
     grid: {
       left: '3%',
@@ -38,7 +49,7 @@ export class ChartPage implements OnInit {
       {
         type: 'category',
         axisTick: {show: false},
-        data: ['Pregunta01', 'Pregunta02', 'Pregunta03', 'Pregunta04', 'Pregunta05', 'Pregunta06']
+        data: []
       }
     ],
     series: [
@@ -98,4 +109,18 @@ export class ChartPage implements OnInit {
       }
     ]
   };
+}
+
+interface Teacher {
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  subject: string;
+  urlImage: string;
+  phone: string;
+  office_location: string;
+  years_of_experience: number;
+  degree: string;
+  schedules: string[];
 }

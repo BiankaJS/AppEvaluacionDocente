@@ -61,12 +61,9 @@ export class LoginPage implements OnInit {
         var key = (rand() + rand() + rand() + rand()).substr(0, 20);
 
         localStorage.setItem('token', key);
-
-        console.log(foundUser.userId, key)
-
         saveUser(foundUser.userId, key);
         
-        this.router.navigate(['home/teacher']);
+        this.router.navigate(['home/teacher'], {state: {userId: foundUser.userId}});
       } else {
         this.notificationService.error('No se encontró el usuario');
       }

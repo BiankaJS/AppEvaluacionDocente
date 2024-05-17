@@ -48,26 +48,9 @@
                 <p>Degree: {{ selectedTeacher.degree }}</p>
               </ion-col>
             </ion-row>
-          </ion-grid>
-          <!-- <ion-card id="cardModal">
-            <ion-card-header>
-              <ion-card-subtitle>{{ selectedTeacher.subject }}</ion-card-subtitle>
-              <ion-card-title>{{ selectedTeacher.first_name }} {{ selectedTeacher.last_name }}</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <p>Email: {{ selectedTeacher.email }}</p>
-              <p>Phone: {{ selectedTeacher.phone }}</p>
-              <p>schedules: {{ selectedTeacher.schedules}}</p>
-              <p>Office Location: {{ selectedTeacher.office_location }}</p>
-              <p>Years of Experience: {{ selectedTeacher.years_of_experience }}</p>
-              <p>Degree: {{ selectedTeacher.degree }}</p>
-            </ion-card-content>
-          </ion-card> -->
-          <ion-nav-link routerLink="/evaluacion" [component]="componet">
-            <ion-button class="btnEnviar" expand="full" color="primary" (click)="setOpen(false, null)">
-              Evaluar
-            </ion-button>
-          </ion-nav-link>
+          </ion-grid><ion-button class="btnEnviar" expand="full" color="primary" (click)="navigateToEvaluation(selectedTeacher)">
+            Evaluar
+          </ion-button>
         </ion-content>
       </ng-template>
     </ion-modal>

@@ -8,6 +8,7 @@ import { ChartPageRoutingModule } from './chart-routing.module';
 
 import { ChartPage } from './chart.page';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     FormsModule,
     IonicModule,
     ChartPageRoutingModule,
-    NgxEchartsModule.forRoot({echarts: () => import('echarts')})
+    HttpClientModule,
+    NgxEchartsModule.forRoot({echarts: () => import('echarts')}),
   ],
   declarations: [ChartPage]
 })

@@ -24,3 +24,17 @@ export const saveUser = async (userid: number | undefined, token: string | undef
   return await addDoc(collection(firestore, "login"), {userid, token});
 };
 
+export const saveResult = async (UserId: number, TeacherId: number, Questions: [Question]) => {
+  if (!UserId ||!TeacherId) {
+    throw new Error("Both UserId and TeacherId must be defined.");
+  }
+  
+  return await addDoc(collection(firestore, "evaluaciones"), {UserId, TeacherId, Questions});
+}
+
+
+interface Question {
+  PreguntaId: number,
+  Pregunta: string,
+  Ranking: number
+}
