@@ -10,6 +10,10 @@
     {
       "id": 3,
       "question": "Does the teacher provide constructive feedback to students?"
+    },
+    {
+        "id": 4,
+        "question": "Does the teacher foster an inclusive and respectful classroom environment?"
     }
   ]
   
