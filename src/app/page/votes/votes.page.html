@@ -12,14 +12,15 @@
     <!-- Primer lugar -->
     <ion-row>
       <ion-col size="12" size-sm="6">
-        <ion-card style="height: 200%;">
+        <ion-card style="height: 220px; border-color: #45BBFF;"> <!-- Tarjeta más larga -->
           <ion-card-header>
             <ion-card-subtitle>{{firstPlace.place}}</ion-card-subtitle>
-            <ion-card-title>{{firstPlace.name}}</ion-card-title>
+            <ion-card-title style="color: #45BBFF;">{{firstPlace.name}}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             Score: {{firstPlace.score}}
           </ion-card-content>
+          <ion-img slot="end" src="https://media.vogue.mx/photos/5e9f0aef8966aa000859aac6/1:1/w_2264,h_2264,c_limit/como-hacer-el-peinado-de-ariana-grande.jpg"></ion-img>
         </ion-card>
       </ion-col>
     </ion-row>
@@ -27,16 +28,24 @@
     <!-- Segundo y Tercer lugar -->
     <ion-row class="lower-row">
       <ion-col size="12" size-sm="6">
-        <div class="podium-container">
-          <div class="podium-item">
-            <span class="podium-number">{{secondPlace.name}}</span>
-            <br>Score: {{secondPlace.score}}
-          </div>
-          <div class="podium-item">
-            <span class="podium-number">{{thirdPlace.name}}</span>
-            <br>Score: {{thirdPlace.score}}
-          </div>
-        </div>
+        <ion-card style="height: 170px; "> <!-- Tarjeta menos larga -->
+          <ion-card-header>
+            <ion-card-subtitle>{{secondPlace.place}}</ion-card-subtitle>
+            <ion-card-title style="color: #45BBFF;">{{secondPlace.name}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Score: {{secondPlace.score}}
+          </ion-card-content>
+        </ion-card>
+        <ion-card style="height: 120px;"> <!-- Tarjeta aún más pequeña -->
+          <ion-card-header>
+            <ion-card-subtitle>{{thirdPlace.place}}</ion-card-subtitle>
+            <ion-card-title style="color: #45BBFF;">{{thirdPlace.name}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Score: {{thirdPlace.score}}
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
