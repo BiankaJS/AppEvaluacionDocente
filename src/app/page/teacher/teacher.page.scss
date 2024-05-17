@@ -89,6 +89,7 @@ ion-card-subtitle {
     color: #666;
 }
 
-.btnEnviar{
-    background-color: #45BBFF;
+ion-button.btnEvaluar {
+    --background: #45BBFF; 
+    --color: white; 
 }
