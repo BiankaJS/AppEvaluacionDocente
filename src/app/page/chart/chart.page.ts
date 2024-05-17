@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EChartsOption } from 'echarts';
 import { Observable } from 'rxjs';
+import { getEvaluaciones } from 'src/main';
 
 @Component({
   selector: 'app-chart',
@@ -61,6 +62,9 @@ export class ChartPage implements OnInit {
         series: this.generateSeriesData() // Call a function to generate series data
       };
     });
+
+    var evaluaciones = getEvaluaciones();
+    console.log(evaluaciones);
   }
 
   // Function to generate series data based on teacher information
