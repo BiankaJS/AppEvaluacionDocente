@@ -11,9 +11,9 @@ import { Observable } from 'rxjs';
 })
 export class VotesPage implements OnInit {
   public teachers = [];
-  public thirdPlace = { name: '', place: "Tercer Lugar", score: 0 };
-  public secondPlace = { name: '', place: "Segundo Lugar", score: 0 };
-  public firstPlace = { name: '', place: "Primer Lugar", score: 0 };
+  public thirdPlace = { photo: '', name: '', place: "Tercer Lugar", score: 0 };
+  public secondPlace = { photo: '', name: '', place: "Segundo Lugar", score: 0 };
+  public firstPlace = { photo: '', name: '', place: "Primer Lugar", score: 0 };
 
   constructor(private http: HttpClient, private route: Router) { }
 
@@ -30,39 +30,32 @@ export class VotesPage implements OnInit {
         this.teachers = result;
         console.log(result);
 
-        // Cargar evaluaciones después de obtener la lista de maestros
         this.loadEvaluations();
       });
 
     } catch (error) {
       console.error("Error loading data:", error);
-      // Manejar el error aquí, como mostrar un mensaje al usuario
     }
   }
 
   async loadEvaluations() {
     try {
-      // Cargar evaluaciones
       const evaluations = await getEvaluaciones();
       this.calculateScores(this.teachers, evaluations);
     } catch (error) {
       console.error("Error loading evaluations:", error);
-      // Manejar el error aquí, como mostrar un mensaje al usuario
     }
   }
 
   calculateScores(teachers: any[], evaluations: any[]) {
-    const teacherScores: { [teacherId: number]: { name: string, score: number } } = {};
+    const teacherScores: { [teacherId: number]: { photo: string, name: string, score: number } } = {};
 
-    // Map teacher IDs to names for easy lookup
     const teacherMap = new Map(teachers.map(teacher => [teacher.id, `${teacher.first_name} ${teacher.last_name}`]));
 
-    // Initialize teacher scores
     teachers.forEach(teacher => {
-      teacherScores[teacher.id] = { name: teacherMap.get(teacher.id) || 'N/A', score: 0 };
+      teacherScores[teacher.id] = {photo: teachers.find(t => t.id == teacher.id).urlImage, name: teacherMap.get(teacher.id) || 'N/A', score: 0 };
     });
 
-    // Calculate total scores
     evaluations.forEach(evaluation => {
       const teacherId = evaluation.TeacherId;
       const totalScore = evaluation.Questions.reduce((acc: any, question: any) => acc + parseInt(question.rating), 0);
@@ -71,26 +64,25 @@ export class VotesPage implements OnInit {
       }
     });
 
-    // Sort teachers by score
     const sortedTeachers = Object.values(teacherScores).sort((a, b) => b.score - a.score);
+    console.log("Sort teacher",sortedTeachers);
 
-    // Assign top 3 places with safe checks
     if (sortedTeachers.length > 0) {
-      this.firstPlace = { ...sortedTeachers[0], place: 'Primer Lugar' };
+      this.firstPlace = { photo: sortedTeachers[0].photo, name: sortedTeachers[0].name, place: 'Primer Lugar', score: sortedTeachers[0].score};
     } else {
-      this.firstPlace = { name: 'N/A', score: 0, place: 'Primer Lugar' };
+      this.firstPlace = { photo: '', name: 'N/A', score: 0, place: 'Primer Lugar' };
     }
 
     if (sortedTeachers.length > 1) {
-      this.secondPlace = { ...sortedTeachers[1], place: 'Segundo Lugar' };
+      this.secondPlace = { photo: sortedTeachers[1].photo, name: sortedTeachers[1].name, place: 'Segundo Lugar', score: sortedTeachers[1].score};
     } else {
-      this.secondPlace = { name: 'N/A', score: 0, place: 'Segundo Lugar' };
+      this.secondPlace = {photo: '', name: 'N/A', score: 0, place: 'Segundo Lugar' };
     }
 
     if (sortedTeachers.length > 2) {
-      this.thirdPlace = { ...sortedTeachers[2], place: 'Tercer Lugar' };
+      this.thirdPlace = { photo: sortedTeachers[2].photo, name: sortedTeachers[2].name, place: 'Primer Lugar', score: sortedTeachers[2].score};
     } else {
-      this.thirdPlace = { name: 'N/A', score: 0, place: 'Tercer Lugar' };
+      this.thirdPlace = { photo: '', name: 'N/A', score: 0, place: 'Tercer Lugar' };
     }
   }
 
