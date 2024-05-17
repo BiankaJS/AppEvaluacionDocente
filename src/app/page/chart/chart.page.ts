@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EChartsOption } from 'echarts';
 import { Observable } from 'rxjs';
-import { getEvaluaciones } from 'src/main';
+import { getEvaluaciones } from 'src/main'; // Ajusta la importación según tu estructura de proyecto
 
 @Component({
   selector: 'app-chart',
@@ -14,7 +14,9 @@ export class ChartPage implements OnInit {
   public teachers: any = [];
   public questions: any = [];
   teacher: string[] = [];
-  questionIds: number[] = []; // Array to hold question IDs
+  questionIds: number[] = [];
+  evaluations: any[] = [];
+
   constructor(private route: Router, private http: HttpClient) { }
 
   ngOnInit() {
@@ -25,52 +27,67 @@ export class ChartPage implements OnInit {
 
     data.subscribe(result => {
       this.teachers = result;
-
-      // Map the first names of teachers to an array
       this.teacher = this.teachers.map((t: Teacher) => t.first_name);
     });
 
     questionsData.subscribe(result => {
       this.questions = result;
-
-      // Map the question IDs to an array
       this.questionIds = this.questions.map((q: any) => q.id);
 
-      // Initialize options after data is loaded
-      this.options = {
-        legend: {
-          data: this.teacher
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: [
-          {
-            type: 'value'
-          }
-        ],
-        yAxis: [
-          {
-            type: 'category',
-            axisTick: { show: false },
-            data: this.questionIds // Use the question IDs here
-          }
-        ],
-        series: this.generateSeriesData() // Call a function to generate series data
-      };
+      this.loadEvaluations();
     });
-
-    var evaluaciones = getEvaluaciones();
-    console.log(evaluaciones);
   }
 
-  // Function to generate series data based on teacher information
+  async loadEvaluations() {
+    try {
+      const evaluaciones = await getEvaluaciones();
+      this.evaluations = evaluaciones;
+      this.updateChartOptions();
+    } catch (error) {
+      console.error("Error loading evaluations:", error);
+    }
+  }
+
+  updateChartOptions() {
+    this.options = {
+      legend: {
+        data: this.teacher
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      xAxis: [
+        {
+          type: 'value'
+        }
+      ],
+      yAxis: [
+        {
+          type: 'category',
+          axisTick: { show: false },
+          data: this.questionIds
+        }
+      ],
+      series: this.generateSeriesData()
+    };
+  }
+
   generateSeriesData(): any[] {
     let seriesData: any[] = [];
-    this.teachers.forEach((teacher: Teacher, index: number) => {
+
+    this.teachers.forEach((teacher: Teacher) => {
+      const teacherEvaluations = this.evaluations.filter(e => e.TeacherId === teacher.id);
+      const ratings = this.questionIds.map(qId => {
+        const questionRatings = teacherEvaluations.flatMap(evaluation =>
+          evaluation.Questions.filter((q: any) => q.id === qId).map((q: any) => parseInt(q.rating))
+        );
+        const averageRating = questionRatings.reduce((a, b) => a + b, 0) / questionRatings.length;
+        return averageRating || 0; // Evitar NaN si no hay ratings
+      });
+
       seriesData.push({
         name: teacher.first_name,
         type: 'bar',
@@ -78,14 +95,15 @@ export class ChartPage implements OnInit {
           show: true,
           position: 'inside'
         },
-        data: teacher.degree // Assuming 'scores' is an array of data for each teacher
+        data: ratings
       });
     });
+
     return seriesData;
   }
 
   logOut() {
-    localStorage.clear()
+    localStorage.clear();
     this.route.navigate(['login']);
   }
 
@@ -111,62 +129,7 @@ export class ChartPage implements OnInit {
         data: []
       }
     ],
-    series: [
-      {
-        name: 'Maestro01',
-        type: 'bar',
-        label: {
-          show: true,
-          position: 'inside'
-        },
-        data: [200, 170, 240, 244, 200, 210]
-      },
-      {
-        name: 'Maestro02',
-        type: 'bar',
-        label: {
-          show: true,
-          position: 'inside'
-        },
-        data: [320, 302, 341, 390, 450, 420]
-      },
-      {
-        name: 'Maestro03',
-        type: 'bar',
-        label: {
-          show: true,
-          position: 'inside'
-        },
-        data: [200, 170, 240, 244, 220, 210]
-      },
-      {
-        name: 'Maestro04',
-        type: 'bar',
-        label: {
-          show: true,
-          position: 'inside'
-        },
-        data: [200, 240, 244, 200, 220, 210]
-      },
-      {
-        name: 'Maestro05',
-        type: 'bar',
-        label: {
-          show: true,
-          position: 'inside'
-        },
-        data: [200, 170, 240, 200, 220, 210]
-      },
-      {
-        name: 'Maestro06',
-        type: 'bar',
-        label: {
-          show: true,
-          position: 'inside'
-        },
-        data: [200, 170, 240, 244, 200, 220]
-      }
-    ]
+    series: []
   };
 }
 
