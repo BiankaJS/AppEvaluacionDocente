@@ -1,23 +1,22 @@
 # Evaluations App
 
-This project is a mobile application built with Ionic that allows users to manage evaluations, view a list of teachers, details, podium rankings, and graphical representations of results.
+This project is a mobile application built with Ionic that provides a platform for managing evaluations. The app includes features for user authentication, viewing teachers, managing votes, displaying charts, and handling evaluations.
 
 ## Features
 
+- **Login**: User authentication and login functionality.
 - **Teacher List**: Displays a list of teachers.
-- **Details**: Shows detailed information about each teacher or evaluation.
-- **Podium**: Ranks teachers based on their evaluation results.
-- **Results Graph**: Visualizes evaluation results using graphical charts.
+- **Votes Management**: Allows users to manage and submit votes.
+- **Chart**: Visualizes evaluation results with graphical charts.
+- **Evaluations**: Handles the creation and management of evaluations.
 
 ## Project Structure
 
-- `src/app`: Contains the core application files.
-  - `pages/teachers`: Manages the list of teachers.
-  - `pages/details`: Handles the details of each teacher or evaluation.
-  - `pages/podium`: Displays the podium rankings.
-  - `pages/results`: Generates and shows the results graph.
-- `src/assets`: Contains images and other static assets.
-- `src/environments`: Contains environment configuration files.
+- `src/app/pages/login`: Manages user authentication and login functionality.
+- `src/app/pages/teacher`: Displays and manages the list of teachers.
+- `src/app/pages/votes`: Handles voting functionality and vote management.
+- `src/app/pages/chart`: Generates and displays graphical charts of evaluation results.
+- `src/app/pages/evaluations`: Manages the creation, listing, and details of evaluations.
 
 ## Prerequisites
 
@@ -63,3 +62,7 @@ This project is a mobile application built with Ionic that allows users to manag
      ```
 
    Ensure you have the necessary SDKs and development tools installed for building mobile apps.
+
+## Configuration
+
+- **Environment Variables**: Configure environment-specific settings in `src/environments`. This may include API endpoints and other configurations.
