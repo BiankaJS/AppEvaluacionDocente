@@ -1,7 +1,3 @@
-Aquí tienes un README para una aplicación de evaluaciones creada en Ionic:
-
----
-
 # Evaluations App
 
 This project is a mobile application built with Ionic that allows users to manage evaluations, view a list of teachers, details, podium rankings, and graphical representations of results.
